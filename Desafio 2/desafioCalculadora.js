@@ -5,25 +5,25 @@ let heroi = {
     derrotas: 20
 };
 // Função principal para executar o desafio
-function executarDesafio(h) {
+function resultado(h) {
     if (h.vitorias < 0 || h.derrotas < 0) {
         console.log("Erro: Números de vitórias ou derrotas não podem ser negativos.");
         return;
     }
 
     const saldo = calcularSaldo(h.vitorias, h.derrotas);
-    const nivel = determinarNivel(saldo);
+    const nivel = nivelDoHeroi(saldo);
     
 
     
-    exibirRelatorio(h.nome, saldo, nivel);
+    Dados(h.nome, saldo, nivel);
 }
 
 function calcularSaldo(vitorias, derrotas) {
     return vitorias - derrotas;
 }
 
-function determinarNivel(saldo) {
+function nivelDoHeroi(saldo) {
     // Para retornar o nível do jogador com base no saldo de vitórias e derrotas.
     if (saldo <= 10) return "Ferro";
     if (saldo <= 20) return "Bronze";
@@ -34,13 +34,13 @@ function determinarNivel(saldo) {
     return "Imortal";
 }
 
-function exibirRelatorio(nome, saldo, nivel) {
+function Dados (nome, saldo, nivel) {
     console.log("--------------------------------------------------------------------");
     console.log(`O Herói ${nome} tem ${saldo} vitorias e está no nível: ${nivel}`);
     
-    // Adicionando uma lógica de "Próxima Meta"
+    // mensagem de incentivo para o jogador.
     if (nivel !== "Imortal") {
-        console.log("Continue jogando para alcançar o próximo ranking!");
+        console.log("Continue jogando para alcançar o próximo nivel!");
     } else {
         console.log("Você esta no apice, parabéns!");
     }
@@ -48,4 +48,4 @@ function exibirRelatorio(nome, saldo, nivel) {
 }
 
 // Execução
-executarDesafio(heroi);
+resultado(heroi);
